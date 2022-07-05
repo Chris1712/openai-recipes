@@ -52,12 +52,25 @@ else:
     with open('output/dish_dict.json', 'w', encoding='utf-8') as f:
         json.dump(dish_dict, f, ensure_ascii=False, indent=4)
 
+# Make directories for each cuisine:
+for cuisine in dish_dict.keys():
+    Path(f"output/recipes/{cuisine.lower()}").mkdir(parents=True, exist_ok=True)
+
 # Finally generate and write an actual recipe for each
 # Todo replace traditional with a list of different styles (quick, vegetarian, healthier)
 for cuisine, recipeList in dish_dict.items():
     for recipe_name in recipeList:
-        prompt = f"This is a traditional {cuisine} recipe for {recipe_name}\n\nIngredients:\n"
-        recipe = "Ingredients:\n" + completion_output(prompt)
-        filename = f"output/recipes/{cuisine}-{recipe_name}.txt".lower()
-        with open(filename, 'w', encoding='utf-8') as f:
-            f.write(recipe)
+        ingredients_prompt = f"A bulleted list of ingredients for traditional {cuisine} {recipe_name}:"
+        ingredients_result = completion_output(ingredients_prompt)
+        steps_prompt = ingredients_prompt + '\n' + ingredients_result + '\nNumbered steps for this recipe:'
+        steps_result = completion_output(steps_prompt)
+        tools_prompt = steps_prompt + '\n' + steps_result + '\nKitchen equipment needed for this recipe:'
+        tools_result = completion_output(tools_prompt)
+
+        filenameStart = f"output/recipes/{cuisine}/{recipe_name}".lower()
+        with open(f"{filenameStart}-ingredients.txt", 'w', encoding='utf-8') as f:
+            f.write(ingredients_result)
+        with open(f"{filenameStart}-steps.txt", 'w', encoding='utf-8') as f:
+            f.write(steps_result)
+        with open(f"{filenameStart}-tools.txt", 'w', encoding='utf-8') as f:
+            f.write(tools_result)
