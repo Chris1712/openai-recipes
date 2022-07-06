@@ -1,0 +1,12 @@
+.logo {
+  filter: $orange-filter;
+  height: 40px;
+}
+
+.logo-title {
+  padding-left: 10px;
+  font-family: $primary-font;
+  font-weight: $bold-weight;
+  color: $primary;
+  text-decoration: none;
+}

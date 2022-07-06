@@ -1,9 +1,66 @@
+@import "reset";
+
 $backgroundColor: #ffffff;
 $bodyColor: #000000;
 $bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+$primary: #ff7200;
+$orange-filter: invert(58%) sepia(79%) saturate(4362%) hue-rotate(1deg) brightness(102%) contrast(103%);
+
+// Fonts
+$primary-font: 'Roboto Condensed', sans-serif;
+$light-weight: 300;
+$regular-weight: 400;
+$bold-weight: 700;
+
+// Util
+@mixin wrapper {
+  padding-left: 20vw;
+  padding-right: 20vw;
+}
 
 body {
   background: $backgroundColor;
   color: $bodyColor;
   font-family: $bodyFont;
 }
+
+header {
+   height: 80px;
+   @include wrapper;
+   display: flex;
+   align-items: center;
+}
+
+.wrapper {
+  width: 60vw;
+  margin: 0 auto;
+}
+
+@import "header";
+@import "breadcrumb";
+@import "recipe";
+
+main {
+  @include wrapper;
+  padding-top: 40px;
+  font-family: $primary-font;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 40px;
+}
+
+main h1 {
+  font-size: 15pt;
+}
+
+main ul {
+  list-style-position: inside;
+  list-style-type: circle;
+  font-weight: $light-weight;
+
+  li {
+    padding-top: 10px;
+  }
+}
+

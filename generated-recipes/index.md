@@ -1,8 +1,6 @@
 ---
-layout: default
-title: "Happy Jekylling!"
+layout: home
+title: "Recipes | One Stop Stop"
 ---
 
 ## You're ready to go!
-
-Start developing your Jekyll website.

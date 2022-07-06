@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<div class="wrapper">
+  <article>
+    <h1>{{page.recipe | upcase}}</h1>
+    <p class="description">{{page.description}}</p>
+    <div class="meta">
+      <img src="/assets/servings.svg"/>
+      <span>{{page.servings}} servings</span>
+      <img src="/assets/time.svg"/>
+      <span>{{page.time}}</span>
+    </div>
+    <div class="advert">THIS IS AN ADVERT</div>
+    <div class="markdown-body">
+      {{content}}
+    </div>
+  </article>
+</wrapper>
