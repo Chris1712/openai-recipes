@@ -15,3 +15,9 @@ export OPENAI_API_KEY='ABC-123'
 pip install whatever
 pip freeze > requirements.txt
 ```
+
+## Jekyll Local development
+
+```sh
+jekyll serve --livereload
+```

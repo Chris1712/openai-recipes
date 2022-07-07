@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<main>
+{% for cuisine in site.collections %}
+{% if cuisine.label != "posts" %}
+
+  <section>
+    <h1>{{ cuisine.label }}</h1>
+    <ul>
+    {% for recipe in site[cuisine.label] %}
+      <li><a href="/{{recipe.cuisine}}/{{recipe.recipe | replace:' ', '-'}}">{{ recipe.recipe }}</a></li>
+    {% endfor %}
+    </ul>
+  </section>
+
+{% endif %}
+{% endfor %}
+</main>

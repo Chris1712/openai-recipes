@@ -1,0 +1,28 @@
+nav {
+  @include wrapper;
+  height: 80px;
+  background-color: $primary;
+  display: flex;
+  align-items: center;
+}
+
+nav li, nav a {
+  display: inline-block;
+  font-family: $primary-font;
+  font-weight: $light-weight;
+  color: white;
+  text-decoration: none;
+  font-size: 18pt;
+}
+
+nav b {
+  font-weight: $regular-weight;
+}
+
+nav li:after {
+  content: '/';
+}
+
+nav li:last-child:after {
+  content: '';
+}

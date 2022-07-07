@@ -1,0 +1,21 @@
+<nav>
+  <ol>
+    <li>
+      <span><a href="/">cuisines</a></span>
+    </li>
+
+    <!-- Display cuisine as link if we're on a recipe -->
+    {% if page.cuisine %}
+    <li>
+      <span>{{ page.cuisine }}</span>
+    </li>
+    {% endif %}
+
+    <!-- Display the recipe name if we're on a recipe -->
+    {% if page.cuisine and page.recipe %}
+    <li>
+      <span><b>{{ page.recipe }}</b></span>
+    </li>
+    {% endif %}
+  </ol>
+</nav>
