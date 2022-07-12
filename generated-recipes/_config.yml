@@ -1,13 +1,75 @@
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-title: "" # the name of your site, e.g. ACME Corp.
+url: ""
+baseurl: ""
+title: ""
 collections_dir: /cuisines
 markdown: kramdown
 
 collections:
+  thai:
+    output: true
+    permalink: /:collection/:name
+  
+  indian:
+    output: true
+    permalink: /:collection/:name
+  
+  chinese:
+    output: true
+    permalink: /:collection/:name
+  
   japanese:
     output: true
     permalink: /:collection/:name
-  mexican:
+  
+  korean:
     output: true
     permalink: /:collection/:name
+  
+  vietnamese:
+    output: true
+    permalink: /:collection/:name
+  
+  cambodian:
+    output: true
+    permalink: /:collection/:name
+  
+  laotian:
+    output: true
+    permalink: /:collection/:name
+  
+  malaysian:
+    output: true
+    permalink: /:collection/:name
+  
+  indonesian:
+    output: true
+    permalink: /:collection/:name
+  
+  filipino:
+    output: true
+    permalink: /:collection/:name
+  
+  sri lankan:
+    output: true
+    permalink: /:collection/:name
+  
+  nepali:
+    output: true
+    permalink: /:collection/:name
+  
+  tibetan:
+    output: true
+    permalink: /:collection/:name
+  
+  pakistani:
+    output: true
+    permalink: /:collection/:name
+  
+  bangladeshi:
+    output: true
+    permalink: /:collection/:name
+  
+  kashmiri:
+    output: true
+    permalink: /:collection/:name
+  

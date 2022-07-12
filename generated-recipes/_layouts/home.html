@@ -4,7 +4,7 @@ layout: default
 
 <main>
 {% for cuisine in site.collections %}
-{% if cuisine.label != "posts" %}
+{% if cuisine.label != "posts" and site[cuisine.label].size > 0 %}
 
   <section>
     <h1>{{ cuisine.label }}</h1>

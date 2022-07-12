@@ -48,19 +48,31 @@ main {
   display: flex;
   flex-flow: row wrap;
   gap: 40px;
-}
 
-main h1 {
-  font-size: 15pt;
-}
+  section {
+    width: 200px;
 
-main ul {
-  list-style-position: inside;
-  list-style-type: circle;
-  font-weight: $light-weight;
+    h1 {
+      font-size: 20pt;
+    }
 
-  li {
-    padding-top: 10px;
+    ul {
+      list-style-position: inside;
+      list-style-type: circle;
+      font-weight: $light-weight;
+
+      li {
+        padding-top: 10px;
+
+        a {
+          text-decoration: none;
+          color: #1a1a1a;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }
-
