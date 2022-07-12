@@ -10,14 +10,14 @@ CUISINE_FILE = 'output/cuisines'  # Path to file holding comma separated cuisine
 RECIPE_DICT = 'output/dish_dict.json'  # Path to file holding dict of cuisines -> list of dishes
 
 # Get a completion from the API for a given input, and return a combination of base, prompt, and result
-def completion_output(prompt, base):
+def completion_output(prompt, base, max_tokens=256):
     base = base + "\n" if base else ""
 
     result = openai.Completion.create(
         model="text-davinci-002",
         prompt=base + prompt,
         temperature=0.7,
-        max_tokens=256,
+        max_tokens=max_tokens,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
@@ -127,13 +127,14 @@ for cuisine, recipe_list in dish_dict.items():
 
         # Perform prompts to generate recipe!
         # Cumulate the base, appending each prompt result onto the previous
+        # max tokens: 1 token is roughly equivalent to 4 english characters
 
         description, base = completion_output(f"What is {cuisine} {recipe}?", None)
         ingredients, base = completion_output(f"A bulleted list of ingredients for traditional {cuisine} {recipe}:", base)
         steps, base       = completion_output("Numbered steps for this recipe:", base)
         equipment, base   = completion_output("Kitchen equipment needed for this recipe:", base)
-        servings, base    = completion_output("Number of servings:", base)
-        time, base        = completion_output("Time to cook:", base)
+        servings, base    = completion_output("Number of servings:", base, 4)
+        time, base        = completion_output("Time to cook:", base, 4)
 
         print(servings)
         print(time)
@@ -161,3 +162,4 @@ for cuisine, recipe_list in dish_dict.items():
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(result)
             print(f"Wrote {cuisine} - {recipe} to {filename}")
+            print("\n")

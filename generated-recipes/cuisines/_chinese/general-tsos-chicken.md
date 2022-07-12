@@ -1,6 +1,6 @@
 ---
 layout: recipe
-recipe: "general tso's chicken"
+recipe: "general tsos chicken"
 cuisine: "chinese"
 description: "General Tso's chicken is a popular Chinese dish that is typically made with deep-fried chicken that is coated in a sweet and spicy sauce."
 servings: 4
