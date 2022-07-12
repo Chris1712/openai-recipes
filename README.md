@@ -21,3 +21,8 @@ pip freeze > requirements.txt
 ```sh
 jekyll serve --livereload
 ```
+
+# Recipe Generation Config
+`main.py` holds two relevant templates:
+- `BASE_CONFIG` that describes jekylls config, including the list of cuisines that will appear on the homepage.
+- `RECIPE_FORMAT` that describes the jekyll template for the recipe.
