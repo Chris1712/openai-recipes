@@ -107,10 +107,15 @@ time: {time}
 {steps}
 '''
 
-def naive_clean(string: str) -> str:
+def naive_clean(s: str) -> str:
     # In the Jekyll config of a recipe, remove some forbidden characters
     # Add any more replacements in here
-    return string.replace(":", " ").strip()
+    s = s.replace(":", " ")
+    s = s.replace('"', "'")
+    s = s.strip()
+    s = s.replace("\n", " ")
+
+    return s
 
 for cuisine, recipe_list in dish_dict.items():
     for recipe in recipe_list:
@@ -133,8 +138,8 @@ for cuisine, recipe_list in dish_dict.items():
         ingredients, base = completion_output(f"A bulleted list of ingredients for traditional {cuisine} {recipe}:", base)
         steps, base       = completion_output("Numbered steps for this recipe:", base)
         equipment, base   = completion_output("Kitchen equipment needed for this recipe:", base)
-        servings, base    = completion_output("Number of servings:", base, 4)
-        time, base        = completion_output("Time to cook:", base, 4)
+        servings, base    = completion_output("Number of servings:", base, 16)
+        time, base        = completion_output("Time to cook:", base, 16)
 
         print(servings)
         print(time)
@@ -143,8 +148,8 @@ for cuisine, recipe_list in dish_dict.items():
             recipe = recipe,
             cuisine = cuisine,
             description = naive_clean(description),
-            servings = naive_clean(servings),
-            time = naive_clean(time),
+            servings = naive_clean(servings).lower(),
+            time = naive_clean(time).lower(),
             equipment = equipment,
             ingredients = ingredients,
             steps = steps
