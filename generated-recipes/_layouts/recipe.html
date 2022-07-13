@@ -12,6 +12,7 @@ layout: default
       <span>{{page.time}}</span>
     </div>
     <div class="advert">THIS IS AN ADVERT</div>
+    <img src="/assets/photos/{{page.cuisine}}/{{page.recipe | downcase | replace: " ", "-"}}.jpg" width="100%" />
     <div class="markdown-body">
       {{content}}
     </div>
