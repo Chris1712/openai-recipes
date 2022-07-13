@@ -47,8 +47,8 @@ else:
 ##########################
 
 if os.path.exists(RECIPE_DICT):
-    # load existing dict
-    with open(recipe_dict, 'r') as f:
+    # Load existing dict
+    with open(RECIPE_DICT, 'r') as f:
         dish_dict = json.load(f)
 else:
     # Generate dict of cuisine <-> list[recipe] with prompts
