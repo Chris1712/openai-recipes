@@ -15,8 +15,8 @@ $bold-weight: 700;
 
 // Util
 @mixin wrapper {
-  padding-left: 20vw;
-  padding-right: 20vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 body {
@@ -33,7 +33,7 @@ header {
 }
 
 .wrapper {
-  width: 60vw;
+  width: 80vw;
   margin: 0 auto;
 }
 
